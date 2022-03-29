@@ -27,4 +27,11 @@
  
  <bean name="loggingAspect" class="org.shiyun.aspect.LoggingAspect"/>
  
+<!-- <aop:config>
+ 	<aop:aspect id="loggingAspect" ref="loggingAspect">
+ 		<aop:around pointcut="execution(* get*())" method="myAroundAdvice"/>
+ 		<aop:before method="" arg-names=""/>
+ 	</aop:aspect>
+ </aop:config> -->
+ 
 </beans>

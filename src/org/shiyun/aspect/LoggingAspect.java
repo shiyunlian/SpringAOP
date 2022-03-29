@@ -57,7 +57,7 @@ public class LoggingAspect {
 	// use Pointcut annotation, annotate a dummy method, use this dummy method as a reference for the Before annotation
 	@Pointcut("execution(* get*())")
 	public void allGetters() {}
-//	
+	
 //	@Before("allGetters()")
 //	public void runAllGetters() {
 //		System.out.println("all Getters run.");
@@ -102,26 +102,26 @@ public class LoggingAspect {
 //		System.out.println("A method that takes String argument "+name+" has been called.");
 //	}
 	
-	// the method runs only after there is a successful return
-	@AfterReturning("args(name)")
-	public void stringArgumentMethods3(String name) {
-		System.out.println("A method that takes String argument "+name+" has been called.");
-	}
-	
-	@AfterReturning(pointcut="args(name)", returning = "returnString")
-	public void stringArgumentMethods3(String name, Object returnString) {
-		System.out.println("A method that takes String argument: "+name+" and return "+returnString);
-	}
-
-	@AfterThrowing("args(name)")
-	public void exceptionAdvice(String name) {
-		System.out.println("An exception has been thrown");
-	}
-	
-	@AfterThrowing(pointcut="args(name)", throwing="ex")
-	public void exceptionAdvice(String name, Exception ex) {
-		System.out.println("An exception "+ex+" has been thrown");
-	}
+//	// the method runs only after there is a successful return
+//	@AfterReturning("args(name)")
+//	public void stringArgumentMethods3(String name) {
+//		System.out.println("A method that takes String argument "+name+" has been called.");
+//	}
+//	
+//	@AfterReturning(pointcut="args(name)", returning = "returnString")
+//	public void stringArgumentMethods3(String name, Object returnString) {
+//		System.out.println("A method that takes String argument: "+name+" and return "+returnString);
+//	}
+//
+//	@AfterThrowing("args(name)")
+//	public void exceptionAdvice(String name) {
+//		System.out.println("An exception has been thrown");
+//	}
+//	
+//	@AfterThrowing(pointcut="args(name)", throwing="ex")
+//	public void exceptionAdvice(String name, Exception ex) {
+//		System.out.println("An exception "+ex+" has been thrown");
+//	}
 	
 	// apply the advice to all the methods that have @annotation(org.shiyun.aspect.Loggable)
 	@Around("@annotation(org.shiyun.aspect.Loggable)")
@@ -138,5 +138,9 @@ public class LoggingAspect {
 		}
 		System.out.println("After finally");
 		return returnValue;
+	}
+	
+	public void loggingAdvice() {
+		System.out.println("Logging from the advice");
 	}
 }
