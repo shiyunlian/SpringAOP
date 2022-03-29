@@ -11,12 +11,13 @@ public class AopMain {
 		// getBean("bean name", class name) without casting ShapeService before ctx.getBean
 		ShapeService shapeService = ctx.getBean("shapeService", ShapeService.class);
 		// same as ShapeService shapeService = (ShapeService) ctx.getBean("shapeService");
-		
-		System.out.println(shapeService.getCircle().getName());
-		System.out.println();
-		System.out.println(shapeService.getTriangle().getName());
-		shapeService.getCircle().setName("Dummy name");
-		shapeService.getCircle().setNameAndReturn("Dummy name2");
+//		
+//		System.out.println(shapeService.getCircle().getName());
+//		System.out.println();
+//		System.out.println(shapeService.getTriangle().getName());
+//		shapeService.getCircle().setName("Dummy name");
+//		shapeService.getCircle().setNameAndReturn("Dummy name2");
+		shapeService.getCircle();
 	}
 
 }

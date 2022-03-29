@@ -123,17 +123,20 @@ public class LoggingAspect {
 		System.out.println("An exception "+ex+" has been thrown");
 	}
 	
-	@Around("allGetters()")
-	public void myAroundAdvice(ProceedingJoinPoint proceedingJoinPoint) {
+	// apply the advice to all the methods that have @annotation(org.shiyun.aspect.Loggable)
+	@Around("@annotation(org.shiyun.aspect.Loggable)")
+	public Object myAroundAdvice(ProceedingJoinPoint proceedingJoinPoint) {
+		Object returnValue = null;
 		
 		try {
 			System.out.println("Before advice");
-			proceedingJoinPoint.proceed();
+			returnValue = proceedingJoinPoint.proceed();
 			System.out.println("After returning");
 		} catch (Throwable e) {
 			System.out.println("After throwing");
 			e.printStackTrace();
 		}
 		System.out.println("After finally");
+		return returnValue;
 	}
 }

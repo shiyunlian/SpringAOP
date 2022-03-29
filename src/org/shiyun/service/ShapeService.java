@@ -1,5 +1,6 @@
 package org.shiyun.service;
 
+import org.shiyun.aspect.Loggable;
 import org.shiyun.model.Circle;
 import org.shiyun.model.Triangle;
 
@@ -8,6 +9,7 @@ public class ShapeService {
 	private Circle circle;
 	private Triangle triangle;
 	
+	@Loggable
 	public Circle getCircle() {
 		return circle;
 	}
